@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学習サイト ポータル</title>
+  <style>
+    :root {
+      --bg: #f5efe4;
+      --panel: rgba(255, 252, 246, 0.88);
+      --text: #1f2a2e;
+      --muted: #5f6c70;
+      --line: rgba(31, 42, 46, 0.12);
+      --accent-a: #d96b38;
+      --accent-b: #2f7a6a;
+      --shadow: 0 20px 50px rgba(31, 42, 46, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Hiragino Sans", "Yu Gothic", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(217, 107, 56, 0.18), transparent 32%),
+        radial-gradient(circle at bottom right, rgba(47, 122, 106, 0.18), transparent 28%),
+        linear-gradient(135deg, #f8f2e8 0%, #efe4d2 100%);
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
+
+    .shell {
+      width: min(980px, 100%);
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .hero {
+      padding: 56px 24px 28px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 16px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(31, 42, 46, 0.06);
+      color: var(--muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 4vw, 3.8rem);
+      line-height: 1.08;
+    }
+
+    .lead {
+      width: min(620px, 100%);
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.8;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+      padding: 20px 24px 32px;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      padding: 24px;
+      border-radius: 22px;
+      text-decoration: none;
+      color: inherit;
+      background: white;
+      border: 1px solid var(--line);
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .card:hover,
+    .card:focus-visible {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(31, 42, 46, 0.1);
+      border-color: rgba(31, 42, 46, 0.2);
+      outline: none;
+    }
+
+    .badge {
+      width: fit-content;
+      padding: 7px 12px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .card-a .badge {
+      background: rgba(217, 107, 56, 0.12);
+      color: var(--accent-a);
+    }
+
+    .card-b .badge {
+      background: rgba(47, 122, 106, 0.12);
+      color: var(--accent-b);
+    }
+
+    .card h2 {
+      margin: 0;
+      font-size: 1.6rem;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .link-row {
+      margin-top: auto;
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 0 24px 28px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 720px) {
+      .hero {
+        padding-top: 40px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Learning Portal</div>
+      <h1>学習サイト まとめページ</h1>
+      <p class="lead">
+        2つの独立した学習サイトへ、ここからすぐにアクセスできます。
+        用途に合わせてそれぞれの入口を選んでください。
+      </p>
+    </section>
+
+    <section class="grid" aria-label="学習サイト一覧">
+      <a class="card card-a" href="https://generativeai-edu.github.io/shukatsu/" target="_blank" rel="noopener noreferrer">
+        <span class="badge">就活向け</span>
+        <h2>就活</h2>
+        <p>
+          就職活動に役立つ内容を学ぶためのサイトです。
+          外部サイトを新しいタブで開きます。
+        </p>
+        <div class="link-row">サイトを見る →</div>
+      </a>
+
+      <a class="card card-b" href="https://generativeai-edu.github.io/gakusei/" target="_blank" rel="noopener noreferrer">
+        <span class="badge">学生向け</span>
+        <h2>学生</h2>
+        <p>
+          学生向けの学習コンテンツにアクセスできます。
+          外部サイトを新しいタブで開きます。
+        </p>
+        <div class="link-row">サイトを見る →</div>
+      </a>
+    </section>
+
+    <footer>
+      必要であれば、この親サイトに説明文やロゴ、公開用設定も追加できます。
+    </footer>
+  </main>
+</body>
+</html>
